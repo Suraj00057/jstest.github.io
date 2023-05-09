@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Input</title>
+</head>
+<body>
+  <h1>Number Input</h1>
+  <label for="number-input">Enter a number:</label>
+  <input type="number" id="number-input">
+  <div id="output"></div>
+
+  <script>
+    const input = document.getElementById('number-input');
+    const output = document.getElementById('output');
+
+    input.addEventListener('input', () => {
+      const value = Number(input.value);
+
+      if (value < 0) {
+        output.textContent = 'Enter a positive value';
+      } else if (value % 2 === 0) {
+        const nextThreeEvens = [value + 2, value + 4, value + 6];
+        output.textContent = `Next three even numbers: ${nextThreeEvens.join(', ')}`;
+      } else {
+        const nextThreeOdds = [value + 2, value + 4, value + 6];
+        output.textContent = `Next three odd numbers: ${nextThreeOdds.join(', ')}`;
+      }
+    });
+  </script>
+</body>
+</html>
